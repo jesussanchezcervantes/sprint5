@@ -5,26 +5,38 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="CSS/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     
-    <title>Acudits</title>
+    <title>Sprint 5: Acudits</title>
 
 </head>
 
-<body>
-    <div class="container">
-        <h4>Preparat per a riure? <span style='font-size:25px;'>&#129315;</span></h4>
-        
-        <button type="button" onclick="giveMeAJoke()"class="btn btn-info text-white">Següent acudit</button>
-        <script src="app.js"></script>
+<body class="background"><img src="Images/fondo_risas.jpg">
+
+<div>
+    <p id="showWeather"></p>
+</div>    
+
+<div class="card text-center position-absolute top-50 start-50 translate-middle rounded-3 shadow" style="width: 40rem; height:20rem;">
+    <div class="card-body position-absolute top-50 start-50 translate-middle mx-auto">
+        <h4 class="fw-bold">Preparat per riure? <span style='font-size:35px;'>&#129315;</span></h4>
+        <p class="mt-5" id="showJoke">"Fes clic per a llegir un acudit"</p>
+        <div style="display:none" id="score-buttons-container">
+            <button type="button" onclick="scoreJoke(1)" class="btn btn-warning" id="score1">Score: 1</button>
+            <button type="button" onclick="scoreJoke(2)" class="btn btn-warning" id="score2">Score: 2</button>
+            <button type="button" onclick="scoreJoke(3)" class="btn btn-warning" id="score3">Score: 3</button>
+        </div>
+        <button type="button" onclick="giveMeAJoke()" class=" mt-4 btn btn-info text-white">Següent acudit</button>
     </div>
-    
-       
+</div>
+
+<script src="app.js"></script>
+
 </body>
 
 </html>
