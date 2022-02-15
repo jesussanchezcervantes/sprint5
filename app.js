@@ -27,16 +27,50 @@ function showWeather(d) {
 }
 
 //API Jokes  
-function giveMeAJoke() {
-    fetch (urlJokes, {headers: {'Accept': 'application/json'}})
-        .then(res => res.json())
-        .then(data => {
+function giveMeADadJoke() {
+    fetch (urlJokes, {headers: {'Accept': 'application/json'}})//Hace una peticion a la URL
+        .then(res => res.json())//devuelve los datos a json (promesa)
+        .then(data => {//data es lo que devuelve esa funcion (los datos en formato json)
             //console.log(data.joke)
             const parrafo = document.getElementById("showJoke")
+            parrafo.innerHTML = data.joke;//muestra el chiste en el parrafo del HTML
+            
             //muestro los botones para que el usuario pueda votar (ocultos al inicio)
             document.getElementById("score-buttons-container").style.display = "block";
-            parrafo.innerHTML = data.joke;
         })
+        .catch(error => console.log (error))
+}
+
+//API Chuck Norris Jokes  
+function giveMeAChuckJoke() {
+    fetch (urlChuckJokes)
+        .then(res => res.json())
+        .then(data => {
+            //console.log(data.value)
+            const parrafo = document.getElementById("showJoke")
+            parrafo.innerHTML = data.value;
+
+            document.getElementById("score-buttons-container").style.display = "block";
+        })
+        .catch(error => console.log (error))
+}
+
+let ApiToFetch = 1;
+
+function giveMeAJoke() {
+    // Evaluamos la variable global ApiToFetch
+    // Si vale 1 llamamos a la función giveMeADadJoke y cambiamos el valor de la variable global a 2
+    // Si vale 2 llamamos a la función giveMeAChuckJoke y cambiamos el valor de la variable global a 1
+    switch (ApiToFetch) {
+        case 1: 
+            giveMeADadJoke()
+            ApiToFetch = 2;
+            break;
+        case 2:
+            giveMeAChuckJoke()
+            ApiToFetch = 1;
+            break;
+    }
 }
 
 let reportJokes = [];
