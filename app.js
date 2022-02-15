@@ -1,20 +1,34 @@
-const url = "https://icanhazdadjoke.com"
+const urlJokes = "https://icanhazdadjoke.com";
+const urlChuckJokes="https://api.chucknorris.io/jokes/random";
 
-const url2 = "http://api.weatherstack.com/current?access_key=93688f2495ec729cbe2f8b1399ead5c3&query=Valencia"
+const urlWeather = "https://api.openweathermap.org/data/2.5/weather?q=Valencia&appid=a1fa5835f76e0aaadc6a7bf7ccb61210";
 
+ApiWeather();
+
+//API Weather
 function ApiWeather() {
-    fetch (url2)
-        .then(res => res.json())
-        .then(weather => {
-        //console.log(weather);
-        const parrafo = document.getElementById("showWeather")
-        parrafo.innerHTML = weather;
+    fetch(urlWeather)
+        .then((response) => {
+          return response.json();
         })
-        .catch(error => console.log(error))
+        .then((data) => {
+            showWeather(data);
+        //console.log(data);
+        })
+        .catch(error => console.log (error))
 }
 
+function showWeather(d) {
+	let celsius = Math.round(parseFloat(d.main.temp)-273.15);
+	
+	document.getElementById('description').innerHTML = d.weather[0].description;
+	document.getElementById('temp').innerHTML = celsius + '&deg;' + "C";
+	document.getElementById('location').innerHTML = d.name;   
+}
+
+//API Jokes  
 function giveMeAJoke() {
-    fetch (url, {headers: {'Accept': 'application/json'}})
+    fetch (urlJokes, {headers: {'Accept': 'application/json'}})
         .then(res => res.json())
         .then(data => {
             //console.log(data.joke)
@@ -23,7 +37,6 @@ function giveMeAJoke() {
             document.getElementById("score-buttons-container").style.display = "block";
             parrafo.innerHTML = data.joke;
         })
-        .catch(error => console.log (error))
 }
 
 let reportJokes = [];
@@ -52,7 +65,7 @@ function scoreJoke(score) {
     //Añadir al array, el chiste, la puntuación y la fecha.
     reportJokes.push(joke);
     //Hacer un console.log del array
-    console.log (reportJokes);  
+    //console.log (reportJokes);  
 }
 
 

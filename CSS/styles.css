@@ -1,10 +1,11 @@
-.background img {
-    width:100%;
-    opacity: 0.5;
-    position:relative;
+body {
+    background-image: url(/images/fondo_risas.jpg); 
+    background-size: cover; 
+    background-position-y: center;
+    background-position-x: center;
+    height: 100vh;
 }
 
 .shadow {
     box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.5);
 }
-
