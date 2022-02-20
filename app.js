@@ -21,7 +21,6 @@ function ApiWeather() {
 function showWeather(d) {
 	let celsius = Math.round(parseFloat(d.main.temp)-273.15);
 	
-	document.getElementById('description').innerHTML = d.weather[0].description;
 	document.getElementById('temp').innerHTML = celsius + '&deg;' + "C";
 	document.getElementById('location').innerHTML = d.name;   
 }

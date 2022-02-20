@@ -18,22 +18,25 @@
 
 <body>
 
-<div id="ShowWeather()" class="container position-absolute">
-    <div id="description"></div>
-    <div id="temp" class="fw-bold" style="font-size:35px;"></div>
-    <div id="location"></div>
+<div id="ShowWeather()" class=" col-3 container position-absolute text-center">
+    <div id="temp" class="fw-bold" style="font-size:35px"></div>
+    <div id="location" class="fw-bold"></div>
 </div>
-    
-<div class="card text-center position-absolute top-50 start-50 translate-middle rounded-3 shadow" style="width: 40rem; height:20rem;">
-    <div class="card-body position-absolute top-50 start-50 translate-middle mx-auto">
-        <h4 class="fw-bold">Preparat per riure? <span style='font-size:35px;'>&#129315;</span></h4>
-        <p class="mt-5" id="showJoke">"Fes clic per a llegir un acudit"</p>
-        <div style="display:none" id="score-buttons-container">
-            <button type="button" onclick="scoreJoke(1)" class="btn btn-warning" id="score1">Score: 1</button>
-            <button type="button" onclick="scoreJoke(2)" class="btn btn-warning" id="score2">Score: 2</button>
-            <button type="button" onclick="scoreJoke(3)" class="btn btn-warning" id="score3">Score: 3</button>
+
+<div class=" d-flex col-12 col-md-8 col-sm-6 container-fluid vh-100 align-items-center justify-content-center" href="#"><img src="Images/blob.svg">
+    <div class="row justify-content-center align-items-center position-absolute top-50 start-50 translate-middle text-center">
+        <h4 class="fw-bold text-white text-center" style="font-size:50px">Ready for some laughs?</h4>
+        <p class="mt-5 text-white text-wrap" style="font-size: 30px" id="showJoke">"Clic to read jokes"</p>
+        <div class="d-flex justify-content-center" style="display:none" id="score-buttons-container">
+            <div class="d-flex">
+                <span id="Score1" onclick="scoreJoke(1)" class="btn p-3" style='font-size:40px;'>&#128534;</span>
+                <span id="Score2" onclick="scoreJoke(2)" class="btn p-3" style='font-size:40px;'>&#128556;</span>
+                <span id="Score3" onclick="scoreJoke(3)" class="btn p-3" style='font-size:40px;'>&#129315;</span>
+            </div>
         </div>
-        <button type="button" onclick="giveMeAJoke()" class=" mt-4 btn btn-info text-white">Següent acudit</button>
+        <div>
+            <button type="button" onclick="giveMeAJoke()" style="font-size: 30px" class="btn btn-outline-warning text-black">Next joke</button>
+        </div>
     </div>
 </div>
 
